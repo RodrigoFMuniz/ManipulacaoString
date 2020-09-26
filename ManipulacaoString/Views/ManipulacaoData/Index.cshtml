@@ -1,0 +1,44 @@
+﻿@model ManipulacaoString.Models.InputResultModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<h4>ManipulacaoStringModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="InputLeft" class="control-label"></label>
+                <input asp-for="InputLeft" class="form-control" />
+                <span asp-validation-for="InputLeft" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InputRight" class="control-label"></label>
+                <input asp-for="InputRight" class="form-control" />
+                <span asp-validation-for="InputRight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Results" class="control-label"></label>
+                <p>@Model?.Results</p>
+                <span asp-validation-for="Results" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Compare" asp-action="Compare" class="btn btn-primary" />
+                <input type="submit" value="Sum Date and Days" asp-action="datePlusDays" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
